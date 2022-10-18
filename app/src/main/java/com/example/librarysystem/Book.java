@@ -6,22 +6,22 @@ public class Book {
     boolean checkedOut;
 
     public Book() {
-    id = UserMain.id;
+    id = id;
     title = "null";
     author = "null";
     genre = "null";
     checkedOut = false;
-    UserMain.id++;
+    id++;
     }
 
     public Book(int id, String title, String author, String genre) {
 
-        this.id = UserMain.id;
+        this.id = id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         checkedOut = false;
-        UserMain.id++;
+        id++;
     }
 
 

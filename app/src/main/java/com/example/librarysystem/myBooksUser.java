@@ -10,6 +10,8 @@ import java.util.ArrayList;
 
 public class myBooksUser extends AppCompatActivity {
 
+    ArrayList<Book> listOfBooks;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -18,7 +20,7 @@ public class myBooksUser extends AppCompatActivity {
         BookList lOB = new BookList();
         lOB.read(getApplicationContext());
 
-        ArrayList<Book> listOfBooks = lOB.getBookList();
+        listOfBooks = lOB.getBookList();
     }
 
     public void returnHome(View V){
