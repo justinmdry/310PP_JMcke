@@ -1,5 +1,7 @@
 package com.example.librarysystem;
 
+import static com.example.librarysystem.login.lOB;
+
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
@@ -28,7 +30,7 @@ public class Search extends AppCompatActivity {
 
 
 
-        BookList lOB = new BookList();
+      //  BookList lOB = new BookList();
         lOB.read(getApplicationContext());
 
         ArrayList<Book> LOBARRAY=lOB.getBookList();

@@ -14,6 +14,7 @@ import java.util.ArrayList;
 public class login extends AppCompatActivity {
     static int id = 0;
     static ArrayList<Book> books;
+    static BookList lOB = new BookList();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,7 +44,7 @@ public class login extends AppCompatActivity {
 
     public void createDB() {
         books = new ArrayList<Book>();
-        BookList lOB = new BookList();
+
         lOB.read(getApplicationContext());
 
         ArrayList<Book> listOfBooks;
