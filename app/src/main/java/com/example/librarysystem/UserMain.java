@@ -36,8 +36,12 @@ public class UserMain extends AppCompatActivity {
     }
 
 
-    public void createDB (){
-        books = new ArrayList<Book>();
+    public void createDB(){
+        BookList lOB = new BookList();
+        lOB.read(getApplicationContext());
+
+        ArrayList<Book> listOfBooks = lOB.getBookList();
+        if(listOfBooks == null){
 
         Book book1 = new Book(id, "Catch-22", "Joseph Teller", "War" );
         Book book2 = new Book(id, "Lolita", "Vladimir Nabokov", "Romance" );
@@ -101,8 +105,10 @@ public class UserMain extends AppCompatActivity {
         books.add(book29);
         books.add(book30);
 
-        BookList lOB = new BookList(books);
+         lOB = new BookList(books);
 
         lOB.writeToFile(lOB, UserMain.this);
+
+        }
     }
 }

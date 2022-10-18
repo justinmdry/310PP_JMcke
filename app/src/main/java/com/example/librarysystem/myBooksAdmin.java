@@ -6,6 +6,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
+import java.util.ArrayList;
+
 public class myBooksAdmin extends AppCompatActivity {
 
     @Override
@@ -13,7 +15,10 @@ public class myBooksAdmin extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_books_admin);
 
+        BookList lOB = new BookList();
+        lOB.read(getApplicationContext());
 
+        ArrayList<Book> listOfBooks = lOB.getBookList();
     }
 
     public void returnHome(View V){

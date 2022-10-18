@@ -15,9 +15,19 @@ import java.util.ArrayList;
 
 public class BookList {
 
+    ArrayList<Book> bookList;
+
+    public ArrayList<Book> getBookList() {
+        return bookList;
+    }
+
     public BookList(ArrayList<Book> listOfBooks){
 
-        ArrayList<Book> bookList= listOfBooks;
+        this.bookList= listOfBooks;
+    }
+
+    public BookList(){
+        this.bookList = null;
     }
 
         public void writeToFile(BookList lOB, Context context){
