@@ -8,15 +8,13 @@ import android.view.View;
 
 import java.util.ArrayList;
 
-public class myBooksAdmin extends AppCompatActivity {
-
+public class ManageBooks extends AppCompatActivity {
     ArrayList<Book> listOfBooks;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_my_books_admin);
-
+        setContentView(R.layout.activity_manage_books);
         BookList lOB = new BookList();
         lOB.read(getApplicationContext());
 

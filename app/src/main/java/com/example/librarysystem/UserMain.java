@@ -25,7 +25,7 @@ public class UserMain extends AppCompatActivity {
         Intent intent= new Intent(this, Search.class);
 
         String key="user";
-        Bundle bundle= new Bundle();
+        Bundle bundle= new Bundle();// placeholder for getting usernames
         bundle.putString("key",key);
         intent.putExtras(bundle);
 

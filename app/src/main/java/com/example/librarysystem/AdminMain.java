@@ -17,20 +17,16 @@ public class AdminMain extends AppCompatActivity {
     }
 
 
-    public void myBooksAdmin(View v){
-        Intent intent= new Intent(this, myBooksAdmin.class);
+    public void returns(View v){
+        Intent intent= new Intent(this, returns.class);
         startActivity(intent);
     }
-    public void searchAdmin(View v){
-        Intent intent= new Intent(this, Search.class);
-
-        String key="admin";
-        Bundle bundle= new Bundle();
-        bundle.putString("key",key);
-        intent.putExtras(bundle);
-
+    public void manageBooks(View v){
+        Intent intent= new Intent(this, ManageBooks.class);
         startActivity(intent);
-
     }
-
+    public void logout (View v){
+        Intent intent=new Intent (this, login.class);
+        startActivity(intent);
+    }
 }

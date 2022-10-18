@@ -14,7 +14,10 @@
         android:theme="@style/Theme.LibrarySystem"
         tools:targetApi="31">
         <activity
-            android:name=".myBooksAdmin"
+            android:name=".returns"
+            android:exported="false" />
+        <activity
+            android:name=".ManageBooks"
             android:exported="false" />
         <activity
             android:name=".myBooksUser"
@@ -30,7 +33,7 @@
             android:exported="false" />
         <activity
             android:name=".login"
-            android:exported="true" >
+            android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 

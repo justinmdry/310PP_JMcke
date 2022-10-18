@@ -6,26 +6,42 @@
     android:layout_height="match_parent"
     tools:context=".AdminMain">
 
+    <TextView
+        android:id="@+id/logoutAdmin"
+        android:layout_width="51dp"
+        android:layout_height="24dp"
+        android:minWidth="48dp"
+        android:minHeight="48dp"
+        android:onClick="logout"
+        android:text="Logout"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.045"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.952"
+        tools:ignore="TouchTargetSizeCheck" />
+
     <Button
-        android:id="@+id/searchAdmin"
+        android:id="@+id/manageBooks"
         android:layout_width="233dp"
         android:layout_height="87dp"
         android:layout_marginTop="300dp"
-        android:onClick="searchAdmin"
-        android:text="Search"
+        android:onClick="manageBooks"
+        android:text="Manage BookList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <Button
-        android:id="@+id/myBooksAdmin"
+        android:id="@+id/returns"
         android:layout_width="233dp"
         android:layout_height="87dp"
         android:layout_marginTop="188dp"
         android:layout_marginBottom="50dp"
-        android:onClick="myBooksAdmin"
-        android:text="My Books"
-        app:layout_constraintBottom_toTopOf="@+id/searchAdmin"
+        android:onClick="returns"
+        android:text="Returns"
+        app:layout_constraintBottom_toTopOf="@+id/manageBooks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
