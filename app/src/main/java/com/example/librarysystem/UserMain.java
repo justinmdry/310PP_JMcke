@@ -11,7 +11,8 @@ import java.util.ArrayList;
 public class UserMain extends AppCompatActivity {
 
     static int id = 0;
-static ArrayList<Book> books;
+    static ArrayList<Book> books;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -99,5 +100,9 @@ static ArrayList<Book> books;
         books.add(book28);
         books.add(book29);
         books.add(book30);
+
+        BookList lOB = new BookList(books);
+
+        lOB.writeToFile(lOB, UserMain.this);
     }
 }

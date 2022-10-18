@@ -1,7 +1,7 @@
 package com.example.librarysystem;
 
 public class Book {
-int id;
+    int id;
     String title, author, genre;
     boolean checkedOut;
 
