@@ -13,7 +13,7 @@ import java.io.ObjectOutput;
 import java.io.ObjectOutputStream;
 import java.util.ArrayList;
 
-public class BookList {
+public class BookList extends Book {
 
     ArrayList<Book> bookList;
 
@@ -54,7 +54,7 @@ public class BookList {
 
         }
 
-        public static ArrayList<BookList>read(Context context) {
+        public static ArrayList<Book>read(Context context) {
             ObjectInputStream input = null;
             ArrayList<BookList> lOB = null;
             String filename = "bookList.srl";
@@ -73,7 +73,13 @@ public class BookList {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
-            return returnList;
+            ArrayList<Book> rL2 = new ArrayList<Book>();
+            
+            for(int i = 0 ; i < returnList.size() ; i++){
+                rL2.add(returnList.get(i));
+            }
+
+            return rL2;
         }
 
 }
