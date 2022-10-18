@@ -73,13 +73,19 @@ public class BookList extends Book {
             } catch (ClassNotFoundException e) {
                 e.printStackTrace();
             }
+
+            if(returnList == null) {
+                ArrayList<Book> rL2 = new ArrayList<Book>();
+                return rL2;
+            }else{
+
             ArrayList<Book> rL2 = new ArrayList<Book>();
             
             for(int i = 0 ; i < returnList.size() ; i++){
                 rL2.add(returnList.get(i));
             }
 
-            return rL2;
+            return rL2;}
         }
 
 }

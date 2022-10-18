@@ -49,7 +49,7 @@ public class login extends AppCompatActivity {
         ArrayList<Book> listOfBooks;
         listOfBooks = lOB.getBookList();
 
-            if (listOfBooks == null) {
+            if (listOfBooks == null || listOfBooks.isEmpty()) {
 
                 Book book1 = new Book(id, "Catch-22", "Joseph Teller", "War");
                 Book book2 = new Book(id, "Lolita", "Vladimir Nabokov", "Romance");
