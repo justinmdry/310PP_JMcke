@@ -39,11 +39,11 @@ public class ManageBooks extends AppCompatActivity {
 
             Button checkout=new Button(this);
             checkout.setTag(fill);
-            checkout.setText("Checkout");
+            checkout.setText("Delete");
             checkout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    // fill.checkedOut==true;
+
                 }
             });
 

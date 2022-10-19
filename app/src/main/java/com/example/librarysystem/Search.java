@@ -38,15 +38,17 @@ public class Search extends AppCompatActivity {
 
         displayBooks= (TableLayout) findViewById(R.id.displayBooks);//casting table
 
+
+
         for(int i=0;i<listOfBooks.size();i++){//creating table
            Book fill=listOfBooks.get(i);//iterating through books
-            TableRow row=new TableRow(this);//creating row
+           TableRow row=new TableRow(this);//creating row
 
             String title=fill.title;//creating title view
             TextView titleView=new TextView(this);
             titleView.setText(""+title);
 
-            Button checkout=new Button(this);
+            Button checkout=new Button(this);//creating checkout Buttons
             checkout.setTag(fill);
             checkout.setText("Checkout");
             checkout.setOnClickListener(new View.OnClickListener() {
@@ -56,9 +58,7 @@ public class Search extends AppCompatActivity {
                 }
             });
 
-
-
-            row.addView(titleView);
+            row.addView(titleView);//adding both bits to table
             row.addView(checkout);
             displayBooks.addView(row);
 
@@ -66,7 +66,7 @@ public class Search extends AppCompatActivity {
     }
 
 
-    public void returnHome(View V){
+    public void returnHome(View v){
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();
 
