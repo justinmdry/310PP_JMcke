@@ -1,5 +1,6 @@
 package com.example.librarysystem;
 
+import static com.example.librarysystem.login.books;
 import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -43,7 +44,7 @@ public class ManageBooks extends AppCompatActivity {
             checkout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-
+                    listOfBooks.remove(fill);//removing selected book
                 }
             });
 

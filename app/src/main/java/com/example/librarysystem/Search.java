@@ -54,7 +54,7 @@ public class Search extends AppCompatActivity {
             checkout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                   // fill.checkedOut==true;
+                    fill.checkedOut=true;
                 }
             });
 

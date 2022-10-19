@@ -23,5 +23,7 @@ public class Book {
         checkedOut = false;
         id++;
     }
+    public void deleteBook(Book book){
 
+    }
 }
