@@ -55,6 +55,9 @@ public class Search extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     fill.checkedOut=true;
+                    //update the file so it contains the book as checked out
+                    BookList lOB = new BookList(listOfBooks);
+                    lOB.writeToFile(lOB,getApplicationContext());
                 }
             });
 

@@ -45,6 +45,9 @@ public class ManageBooks extends AppCompatActivity {
                 @Override
                 public void onClick(View view) {
                     listOfBooks.remove(fill);//removing selected book
+                    //Write the new list of books to the file so its updated with the deleted book missing
+                    BookList lOB = new BookList(listOfBooks);
+                    lOB.writeToFile(lOB,getApplicationContext());
                 }
             });
 
