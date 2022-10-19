@@ -32,6 +32,7 @@ public class BookList extends Book {
 
         public void writeToFile(BookList lOB, Context context){
 
+            //Open the file to write to
             File directory = new File(context.getFilesDir().getAbsolutePath()
                     + File.separator + "serlization");
             if (!directory.exists()) {
@@ -44,7 +45,9 @@ public class BookList extends Book {
             try {
                 out = new ObjectOutputStream(new FileOutputStream(directory
                         + File.separator + filename));
+                //write the objects from the lOB arraylist so they are stored in the fie
                 out.writeObject(lOB);
+                //close the out object output stream
                 out.close();
             } catch (FileNotFoundException e) {
                 e.printStackTrace();
@@ -55,15 +58,19 @@ public class BookList extends Book {
         }
 
         public static ArrayList<Book>read(Context context) {
-            ObjectInputStream input = null;
+        //make the object input stream and array list, along with create a string for the file name
+        ObjectInputStream input = null;
             ArrayList<BookList> lOB = null;
             String filename = "bookList.srl";
+            //open the file you will read from
             File direct = new File(context.getFilesDir().getAbsolutePath() + File.separator + "serlization");
 
             ArrayList<BookList> returnList = null;
             try {
+                //declare the ObjectInputStream
                 input = new ObjectInputStream(new FileInputStream(direct + File.separator + filename));
 
+                //read the arraylist from the file and store it in return list
                 returnList = (ArrayList<BookList>) input.readObject();
                 input.close();
             } catch (FileNotFoundException e) {
@@ -75,10 +82,12 @@ public class BookList extends Book {
             }
 
             if(returnList == null) {
+                //if return list is null then return a empty list
                 ArrayList<Book> rL2 = new ArrayList<Book>();
                 return rL2;
             }else{
-
+            //else conver the ArrayList<BookList> into an ArrayList<Book> so we can disply in table and have each
+                // object in an individual spot in the ArrayList
             ArrayList<Book> rL2 = new ArrayList<Book>();
             
             for(int i = 0 ; i < returnList.size() ; i++){

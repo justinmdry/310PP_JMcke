@@ -43,12 +43,14 @@ public class login extends AppCompatActivity {
     }
 
     public void createDB() {
+        //this will create or read the database from the file and BookList.read() function
         books = new ArrayList<Book>();
 
         lOB.read(getApplicationContext());
 
         ArrayList<Book> listOfBooks;
         listOfBooks = lOB.getBookList();
+        // ^ reads the list into listOfBooks, if null which is checked below, make the database and store to file
 
             if (listOfBooks == null || listOfBooks.isEmpty()) {
 
