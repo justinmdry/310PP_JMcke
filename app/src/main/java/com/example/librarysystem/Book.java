@@ -24,5 +24,4 @@ public class Book {
         id++;
     }
 
-
 }

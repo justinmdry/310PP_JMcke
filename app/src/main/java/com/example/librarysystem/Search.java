@@ -6,7 +6,9 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.AttributeSet;
 import android.view.View;
+import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
@@ -29,9 +31,7 @@ public class Search extends AppCompatActivity {
         Bundle bundle=intent.getExtras();//getting user Key
 
 
-
-      //  BookList lOB = new BookList();
-        lOB.read(getApplicationContext());
+        lOB.read(getApplicationContext()); //  BookList lOB = new BookList();
 
         ArrayList<Book> LOBARRAY=lOB.getBookList();
         listOfBooks = lOB.getBookList();
@@ -46,22 +46,24 @@ public class Search extends AppCompatActivity {
             TextView titleView=new TextView(this);
             titleView.setText(""+title);
 
-            String author=fill.author;//creating author view
-            TextView authorView=new TextView(this);
-            authorView.setText(""+author);
+            Button checkout=new Button(this);
+            checkout.setTag(fill);
+            checkout.setText("Checkout");
+            checkout.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+                   // fill.checkedOut==true;
+                }
+            });
 
-            String genre=fill.genre;//creating genre view
-            TextView genreView=new TextView(this);
-            genreView.setText(""+genre);
+
 
             row.addView(titleView);
-            row.addView(authorView);
-            row.addView(genreView);
+            row.addView(checkout);
             displayBooks.addView(row);
 
         }
     }
-
 
 
     public void returnHome(View V){
