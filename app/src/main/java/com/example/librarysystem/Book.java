@@ -25,7 +25,5 @@ public class Book implements Serializable {
         checkedOut = false;
         login.id++;
     }
-    public void deleteBook(Book book){
 
-    }
 }

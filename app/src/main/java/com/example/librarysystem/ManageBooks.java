@@ -1,6 +1,5 @@
 package com.example.librarysystem;
 
-import static com.example.librarysystem.login.books;
 import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -17,18 +16,18 @@ import java.util.ArrayList;
 
 public class ManageBooks extends AppCompatActivity {
     ArrayList<Book> listOfBooks;
-    TableLayout displayBooks;
+    TableLayout displayBooks;//creating references
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_manage_books);
 
-        lOB.read(getApplicationContext()); //  BookList lOB = new BookList();
+        lOB=lOB.read(getApplicationContext()); //  BookList lOB = new BookList();
 
         ArrayList<Book> LOBARRAY=lOB.getBookList();
         listOfBooks = lOB.getBookList();
 
-        displayBooks= (TableLayout) findViewById(R.id.displayBooks);//casting table
+        displayBooks= (TableLayout) findViewById(R.id.displayBooksManage);//casting table
 
         for(int i=0;i<listOfBooks.size();i++){//creating table
             Book fill=listOfBooks.get(i);//iterating through books
@@ -38,7 +37,7 @@ public class ManageBooks extends AppCompatActivity {
             TextView titleView=new TextView(this);
             titleView.setText(""+title);
 
-            Button checkout=new Button(this);
+            Button checkout=new Button(this);//creating button
             checkout.setTag(fill);
             checkout.setText("Delete");
             checkout.setOnClickListener(new View.OnClickListener() {
@@ -55,17 +54,17 @@ public class ManageBooks extends AppCompatActivity {
 
             row.addView(titleView);
             row.addView(checkout);
-            displayBooks.addView(row);
+            displayBooks.addView(row);//adding rows to table
 
         }
     }
 
-    public void returnHome(View V){
+    public void returnHome(View V){//return home button
         Intent intent= new Intent(this, AdminMain.class);
         startActivity(intent);
     }
 
-    public void addView (View V) {
+    public void addView (View V) {//logout button
         Intent intent= new Intent(this, add_form.class);
 
         startActivity(intent);

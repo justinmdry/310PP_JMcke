@@ -17,15 +17,15 @@ public class AdminMain extends AppCompatActivity {
     }
 
 
-    public void returns(View v){
+    public void returns(View v){//button to open up returns
         Intent intent= new Intent(this, returns.class);
         startActivity(intent);
     }
-    public void manageBooks(View v){
+    public void manageBooks(View v){//button to open up manageBooks
         Intent intent= new Intent(this, ManageBooks.class);
         startActivity(intent);
     }
-    public void logout (View v){
+    public void logout (View v){//button to logout
         Intent intent=new Intent (this, login.class);
         startActivity(intent);
     }

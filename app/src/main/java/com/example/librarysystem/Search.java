@@ -6,21 +6,18 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.util.AttributeSet;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TableLayout;
 import android.widget.TableRow;
 import android.widget.TextView;
 
-import org.w3c.dom.Text;
-
 import java.util.ArrayList;
 
 public class Search extends AppCompatActivity {
 
     ArrayList<Book> listOfBooks;
-    TableLayout displayBooks;
+    TableLayout displayBooks;//creating references
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,13 +29,8 @@ public class Search extends AppCompatActivity {
 
 
         lOB.read(getApplicationContext()); //  BookList lOB = new BookList();
-
-        ArrayList<Book> LOBARRAY=lOB.getBookList();
         listOfBooks = lOB.getBookList();
-
         displayBooks= (TableLayout) findViewById(R.id.displayBooks);//casting table
-
-
 
         for(int i=0;i<listOfBooks.size();i++){//creating table
            Book fill=listOfBooks.get(i);//iterating through books
@@ -54,7 +46,7 @@ public class Search extends AppCompatActivity {
             checkout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    fill.checkedOut=true;
+                    fill.checkedOut=true;//if button is pressed update field
                     //update the file so it contains the book as checked out
                     BookList lOB = new BookList(listOfBooks);
                     lOB.writeToFile(lOB,getApplicationContext());
@@ -69,7 +61,7 @@ public class Search extends AppCompatActivity {
     }
 
 
-    public void returnHome(View v){
+    public void returnHome(View v){//return home button
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();
 

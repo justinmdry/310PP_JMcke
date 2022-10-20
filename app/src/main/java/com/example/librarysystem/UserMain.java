@@ -17,11 +17,11 @@ public class UserMain extends AppCompatActivity {
         setContentView(R.layout.activity_user_main);
     }
 
-    public void myBooksUser (View v){
+    public void myBooksUser (View v){//button to access users book view
             Intent intent= new Intent(this, myBooksUser.class);
             startActivity(intent);
     }
-    public void searchUser (View v){
+    public void searchUser (View v){//button to access user search view
         Intent intent= new Intent(this, Search.class);
 
         String key="user";
@@ -32,7 +32,7 @@ public class UserMain extends AppCompatActivity {
 
         startActivity(intent);
     }
-    public void logout (View v){
+    public void logout (View v){//logout button
         Intent intent=new Intent (this, login.class);
         startActivity(intent);
     }

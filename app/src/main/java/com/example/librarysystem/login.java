@@ -13,7 +13,7 @@ import java.util.ArrayList;
 
 public class login extends AppCompatActivity {
     static int id = 0;
-    static ArrayList<Book> books;
+    static ArrayList<Book> books;//creating references for createDB
     static BookList lOB ;
 
     @Override
@@ -24,25 +24,25 @@ public class login extends AppCompatActivity {
         createDB();
     }
 
-    public void login(View v){
+    public void login(View v){//login button
         EditText user=(EditText) findViewById(R.id.username);
         EditText pass=(EditText) findViewById(R.id.password);
         String userS=user.getText().toString();
-        String passS=pass.getText().toString();
+        String passS=pass.getText().toString();//getting user and pass fields
 
-        if(userS.equals("user") && passS.equals("pass")){
+        if(userS.equals("user") && passS.equals("pass")){//login for user (temp)
             Intent intent= new Intent(this, UserMain.class);
 
             startActivity(intent);
         }
-        if(userS.equals("admin") && passS.equals("pass")){
+        if(userS.equals("admin") && passS.equals("pass")){//login for admin
             Intent intent= new Intent(this, AdminMain.class);
 
             startActivity(intent);
         }
     }
 
-    public void createDB() {
+    public void createDB() {//if the DB is not created on device, create DB with basic fields
         //this will create or read the database from the file and BookList.read() function
         books = new ArrayList<Book>();
 

@@ -13,8 +13,16 @@ public class returns extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_returns);
 
+
+
+
+
+        ///////////////////////////////////////CLASS NOT IMPLEMENTED////////////////////////////////////////
     }
-    public void returnHome(View V){
+
+
+
+    public void returnHome(View V){//return home button
         Intent intent= new Intent(this, AdminMain.class);
         startActivity(intent);
     }
