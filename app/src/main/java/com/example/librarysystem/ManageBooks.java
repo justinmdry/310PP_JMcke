@@ -64,4 +64,12 @@ public class ManageBooks extends AppCompatActivity {
         Intent intent= new Intent(this, AdminMain.class);
         startActivity(intent);
     }
+
+    public void addView (View V) {
+        Intent intent= new Intent(this, add_form.class);
+
+        startActivity(intent);
+    }
+
+
 }

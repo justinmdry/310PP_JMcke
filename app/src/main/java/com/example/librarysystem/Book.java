@@ -6,22 +6,22 @@ public class Book {
     boolean checkedOut;
 
     public Book() {
-    id = id;
+    id = login.id;
     title = "null";
     author = "null";
     genre = "null";
     checkedOut = false;
-    id++;
+    login.id++;
     }
 
     public Book(int id, String title, String author, String genre) {
 
-        this.id = id;
+        this.id = login.id;
         this.title = title;
         this.author = author;
         this.genre = genre;
         checkedOut = false;
-        id++;
+        login.id++;
     }
     public void deleteBook(Book book){
 
