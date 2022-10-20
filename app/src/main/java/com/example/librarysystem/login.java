@@ -14,7 +14,7 @@ import java.util.ArrayList;
 public class login extends AppCompatActivity {
     static int id = 0;
     static ArrayList<Book> books;
-    static BookList lOB = new BookList();
+    static BookList lOB ;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,7 +46,7 @@ public class login extends AppCompatActivity {
         //this will create or read the database from the file and BookList.read() function
         books = new ArrayList<Book>();
 
-        lOB.read(getApplicationContext());
+        lOB = lOB.read(getApplicationContext());
 
         ArrayList<Book> listOfBooks;
         listOfBooks = lOB.getBookList();
@@ -118,7 +118,7 @@ public class login extends AppCompatActivity {
 
                 lOB = new BookList(books);
 
-                lOB.writeToFile(lOB, login.this);
+                lOB.writeToFile(lOB, getApplicationContext());
 
             }
         }

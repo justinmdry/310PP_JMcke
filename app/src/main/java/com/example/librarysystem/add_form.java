@@ -38,7 +38,7 @@ public class add_form extends AppCompatActivity {
         list = lOB.getBookList();
         list.add(new Book(login.id, title, author, genre));
         lOB = new BookList(list);
-    lOB.writeToFile(lOB, add_form.this);
+    lOB.writeToFile(lOB, getApplicationContext());
     }
 
     public void back (View view) {

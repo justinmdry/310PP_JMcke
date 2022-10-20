@@ -1,6 +1,8 @@
 package com.example.librarysystem;
 
-public class Book {
+import java.io.Serializable;
+
+public class Book implements Serializable {
     int id;
     String title, author, genre;
     boolean checkedOut;
