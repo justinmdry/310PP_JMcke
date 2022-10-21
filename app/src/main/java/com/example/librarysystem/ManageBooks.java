@@ -47,6 +47,8 @@ public class ManageBooks extends AppCompatActivity {
                     //Write the new list of books to the file so its updated with the deleted book missing
                     BookList lOB = new BookList(listOfBooks);
                     lOB.writeToFile(lOB,getApplicationContext());
+                    restart();
+
                 }
             });
 
@@ -58,6 +60,14 @@ public class ManageBooks extends AppCompatActivity {
 
         }
     }
+public void restart(){
+    Intent intent = new Intent(ManageBooks.this, ManageBooks.class);
+    startActivity(intent); // start same activity
+    finish(); // destroy older activity
+    overridePendingTransition(0, 0);
+
+
+}
 
     public void returnHome(View V){//return home button
         Intent intent= new Intent(this, AdminMain.class);
