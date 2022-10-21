@@ -51,7 +51,20 @@ public class add_form extends AppCompatActivity {
         list = lOB.getBookList();
         list.add(new Book(login.id, title, author, genre));
         lOB = new BookList(list);
-    lOB.writeToFile(lOB, getApplicationContext());}
+    lOB.writeToFile(lOB, getApplicationContext());
+            Toast t1 = Toast.makeText(getApplicationContext(), title + " has been added", Toast.LENGTH_SHORT);
+            t1.show();
+            restart();
+        }
+    }
+
+    public void restart(){
+        Intent intent = new Intent(this, add_form.class);
+        startActivity(intent); // start same activity
+        finish(); // destroy older activity
+        overridePendingTransition(0, 0);
+
+
     }
 
     public void back (View view) {
