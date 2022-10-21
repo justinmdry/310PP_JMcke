@@ -29,16 +29,19 @@ public class login extends AppCompatActivity {
         EditText pass=(EditText) findViewById(R.id.password);
         String userS=user.getText().toString();
         String passS=pass.getText().toString();//getting user and pass fields
+        Toast t1 = Toast.makeText(getApplicationContext(), "Wrong username or password. Fields are case sensitive", Toast.LENGTH_SHORT);
 
         if(userS.equals("user") && passS.equals("pass")){//login for user (temp)
             Intent intent= new Intent(this, UserMain.class);
 
             startActivity(intent);
-        }
-        if(userS.equals("admin") && passS.equals("pass")){//login for admin
+        } else if (userS.equals("admin") && passS.equals("pass")) {
             Intent intent= new Intent(this, AdminMain.class);
 
             startActivity(intent);
+
+        } else {
+            t1.show();
         }
     }
 
