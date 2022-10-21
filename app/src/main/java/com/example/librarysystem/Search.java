@@ -32,44 +32,51 @@ public class Search extends AppCompatActivity {
         listOfBooks = lOB.getBookList();
         displayBooks= (TableLayout) findViewById(R.id.displayBooks);//casting table
 
-        for(int i=0;i<listOfBooks.size();i++){//creating table
-           Book fill=listOfBooks.get(i);//iterating through books
-           TableRow row=new TableRow(this);//creating row
+        for(int i=0;i<listOfBooks.size();i++) {//creating table
 
-            String title=fill.title;//creating title view
-            TextView titleView=new TextView(this);
-            titleView.setText(""+title);
+            Book fill = listOfBooks.get(i);//iterating through books
+            TableRow row = new TableRow(this);//creating row
+            if (fill.checkedOut == false) {
+                String title = fill.title;//creating title view
+                TextView titleView = new TextView(this);
+                titleView.setText("" + title);
 
-            Button checkout=new Button(this);//creating checkout Buttons
-            checkout.setTag(fill);
-            checkout.setText("Checkout");
-            checkout.setOnClickListener(new View.OnClickListener() {
-                @Override
-                public void onClick(View view) {
-                    fill.checkedOut=true;//if button is pressed update field
-                    //update the file so it contains the book as checked out
-                    BookList lOB = new BookList(listOfBooks);
-                    lOB.writeToFile(lOB,getApplicationContext());
-                }
-            });
+                Button checkout = new Button(this);//creating checkout Buttons
+                checkout.setTag(fill);
+                checkout.setText("Checkout");
+                checkout.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        fill.checkedOut = true;//if button is pressed update field
+                        //update the file so it contains the book as checked out
+                        BookList lOB = new BookList(listOfBooks);
+                        lOB.writeToFile(lOB, getApplicationContext());
+                        restart();
+                    }
 
-            row.addView(titleView);//adding both bits to table
-            row.addView(checkout);
-            displayBooks.addView(row);
+                });
 
+                row.addView(titleView);//adding both bits to table
+                row.addView(checkout);
+                displayBooks.addView(row);
+
+            }
         }
     }
 
 
     public void returnHome(View v){//return home button
-        Intent intent=getIntent();
-        Bundle bundle=intent.getExtras();
+        Intent intent= new Intent(this, UserMain.class);
+        startActivity(intent);
 
-        String key=bundle.getString("key"); //placeholder for checking username
-        if(key.equals("user")) {
-            Intent intentuser = new Intent(this, UserMain.class);
-            startActivity(intentuser);
-        }
+    }
+
+    public void restart(){
+        Intent intent = new Intent(this, Search.class);
+        startActivity(intent); // start same activity
+        finish(); // destroy older activity
+        overridePendingTransition(0, 0);
+
 
     }
 

@@ -50,6 +50,7 @@ public class myBooksUser extends AppCompatActivity {
                         //update the file so it contains the book as checked out
                         BookList lOB = new BookList(listOfBooksUserView);
                         lOB.writeToFile(lOB,getApplicationContext());
+                        restart();
                     }
                 });
 
@@ -67,5 +68,13 @@ public class myBooksUser extends AppCompatActivity {
     public void returnHome(View V){//return home button
         Intent intent= new Intent(this, UserMain.class);
         startActivity(intent);
+    }
+    public void restart(){
+        Intent intent = new Intent(this, myBooksUser.class);
+        startActivity(intent); // start same activity
+        finish(); // destroy older activity
+        overridePendingTransition(0, 0);
+
+
     }
 }
