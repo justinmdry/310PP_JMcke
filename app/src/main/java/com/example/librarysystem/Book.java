@@ -2,6 +2,7 @@ package com.example.librarysystem;
 
 import java.io.Serializable;
 
+//Creates a book object that holds title, author, genre, id, and checked out status
 public class Book implements Serializable {
     int id;
     String title, author, genre;

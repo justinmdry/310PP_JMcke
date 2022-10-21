@@ -69,6 +69,8 @@ public class myBooksUser extends AppCompatActivity {
         Intent intent= new Intent(this, UserMain.class);
         startActivity(intent);
     }
+
+    //Restarts activity to show changes
     public void restart(){
         Intent intent = new Intent(this, myBooksUser.class);
         startActivity(intent); // start same activity

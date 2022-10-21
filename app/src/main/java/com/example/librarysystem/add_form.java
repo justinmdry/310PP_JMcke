@@ -58,6 +58,7 @@ public class add_form extends AppCompatActivity {
         }
     }
 
+    //Restarts activity to show changes
     public void restart(){
         Intent intent = new Intent(this, add_form.class);
         startActivity(intent); // start same activity

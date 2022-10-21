@@ -88,12 +88,8 @@ public class BookList implements Serializable {
             BookList rL2 = new BookList();
             return rL2;
         } else {
-            //else conver the ArrayList<BookList> into an ArrayList<Book> so we can disply in table and have each
-            // object in an individual spot in the ArrayList
+            //else return the written list
             return returnList;
-
-//            for(int i = 0 ; i < returnList.size() ; i++){
-//                rL2.add(returnList.get(i));
         }
     }
 }

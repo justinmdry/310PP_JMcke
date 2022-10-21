@@ -60,6 +60,7 @@ public class ManageBooks extends AppCompatActivity {
 
         }
     }
+    //Restarts activity to show changes
 public void restart(){
     Intent intent = new Intent(ManageBooks.this, ManageBooks.class);
     startActivity(intent); // start same activity

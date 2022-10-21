@@ -71,6 +71,7 @@ public class Search extends AppCompatActivity {
 
     }
 
+    //Restarts activity to show changes
     public void restart(){
         Intent intent = new Intent(this, Search.class);
         startActivity(intent); // start same activity
