@@ -47,7 +47,7 @@ The library app will allow users and staff to interact with the library’s inve
 
 ## **Installation Instructions**
 ### **System Requirements:**
-- Android Device with an internet connection
+- Android device with an internet connection
 
 ### **Installation:**
 1. Allow your browser to install unknown apps. For additional help on this, follow these [instructions](https://www.lifewire.com/install-apk-on-android-4177185)
