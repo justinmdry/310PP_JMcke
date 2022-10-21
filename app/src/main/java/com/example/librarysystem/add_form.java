@@ -9,6 +9,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -29,16 +30,28 @@ public class add_form extends AppCompatActivity {
         authorText = (EditText) findViewById(R.id.authorField);
         genreText = (EditText) findViewById(R.id.genreField);
 
+
         title = titleText.getText().toString();
         author = authorText.getText().toString();
         genre = genreText.getText().toString();
 
      //Gets the current booklist, adds the new book, and changes the master list
+
+        if (title.isEmpty())  {
+            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter a book title", Toast.LENGTH_SHORT);
+            t1.show();
+        } else if (author.isEmpty()){
+            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter an author", Toast.LENGTH_SHORT);
+            t1.show();
+        } else if (genre.isEmpty()){
+            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter a genre", Toast.LENGTH_SHORT);
+            t1.show();
+        } else {
         lOB.read(getApplicationContext());
         list = lOB.getBookList();
         list.add(new Book(login.id, title, author, genre));
         lOB = new BookList(list);
-    lOB.writeToFile(lOB, getApplicationContext());
+    lOB.writeToFile(lOB, getApplicationContext());}
     }
 
     public void back (View view) {
