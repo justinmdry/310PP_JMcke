@@ -31,7 +31,7 @@ The library app will allow users and staff to interact with the library’s inve
     The user screen has My Books button and Search Books button. The admin screen will just have a Manage Books button
 
 - ### **Database**
-    The database will be primitive, consisting of a local file generated on the phone upon installation. It will have 30 books on install and admins will be able to add or delete books/
+    The database will be primitive, consisting of a local file generated on the phone upon installation. It will have 30 books on install and admins will be able to add or delete books.
 
 - ### **User My Books**
     A table that displays all the users checked out books and information. A check in button will be present that allows the user to “put back” a book.
@@ -44,10 +44,19 @@ The library app will allow users and staff to interact with the library’s inve
 
 - ### **Admin Add Book**
     Brings up a form for the admin to fill out
+
+## **Installation Instructions**
+### **System Requirements:**
+- Android Device with an internet connection
+
+### **Installation:**
+1. Allow your browser to install unknown apps. For additional help on this, follow these [instructions](https://www.lifewire.com/install-apk-on-android-4177185)
+1. Download the APK file from the APK folder
+3. Enjoy!
 ## **Team Members**
-- Ethan Sturek
-- Justin McKendry
-- Liam Stienstra
+- Ethan Sturek - Project Manager
+- Justin McKendry - Back-End Engineer
+- Liam Stienstra - Front-End Engineer
 
 ## **WBS/Gantt**
 Link is [here](https://app.smartsheet.com/sheets/mGMPcRX684vc3jw7CM2J5m2WWVm5q4RPqFGX4GC1?view=gantt)
