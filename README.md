@@ -45,6 +45,9 @@ The library app will allow users and staff to interact with the library’s inve
 - ### **Admin Add Book**
     Brings up a form for the admin to fill out
 
+## **Class Organization**
+All classes function as activities within the android studio project. The exception with this is Book and Booklist. Book is a static object that contains attributes about the books. Booklist is a public class used to store an arraylist of books and read and write to the internal storage.
+
 ## **Installation Instructions**
 ### **System Requirements:**
 - Android device with an internet connection
