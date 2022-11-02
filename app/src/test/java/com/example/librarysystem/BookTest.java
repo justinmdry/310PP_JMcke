@@ -68,10 +68,22 @@ class BookTest {
         assertEquals(answers[3][0], b4.title, "A book does not have the correct title.");
 
         //check all the book authors
+        assertEquals(answers[0][1], b1.author, "A book does not have the correct author.");
+        assertEquals(answers[1][1], b2.author, "A book does not have the correct author.");
+        assertEquals(answers[2][1], b3.author, "A book does not have the correct author.");
+        assertEquals(answers[3][1], b4.author, "A book does not have the correct author.");
 
         //check all the book genres
+        assertEquals(answers[0][2], b1.genre, "A book does not have the correct genre.");
+        assertEquals(answers[1][2], b2.genre, "A book does not have the correct genre.");
+        assertEquals(answers[2][2], b3.genre, "A book does not have the correct genre.");
+        assertEquals(answers[3][2], b4.genre, "A book does not have the correct genre.");
 
         //check if checked out by default
+        assertFalse(b1.checkedOut, "A book is marked as checked out by default");
+        assertFalse(b2.checkedOut, "A book is marked as checked out by default");
+        assertFalse(b3.checkedOut, "A book is marked as checked out by default");
+        assertFalse(b4.checkedOut, "A book is marked as checked out by default");
 
         assertEquals(currentID+4, login.id, "The creation of multiple books does not raise the login id to the expected number.");
     }
