@@ -6,17 +6,16 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class BookTest {
-    //Okay self. Maybe run a before All to create a bunch of book objects to run tests on
 
     int currentID = 0;
 
     @BeforeEach
-    public void checkID(){
+    public void checkID() {
         currentID = login.id;
     }
 
     @Test
-    public void correctDefaultConstructorTest(){
+    public void correctDefaultConstructorTest() {
         Book b = new Book();
 
         assertEquals(currentID, b.id, "The book does not have the correct id.");
@@ -25,11 +24,11 @@ class BookTest {
         assertEquals("null", b.genre, "The default constructor does not set the genre to null.");
         assertFalse(b.checkedOut, "The default constructor marks the book as checked out.");
 
-        assertEquals(currentID+1, login.id, "The default constructor does not increment the id.");
+        assertEquals(currentID + 1, login.id, "The default constructor does not increment the id.");
     }
 
     @Test
-    public void correctNonDefaultConstructorTest(){
+    public void correctNonDefaultConstructorTest() {
         Book b = new Book(13, "The Magician's Nephew", "C.S. Lewis", "Fiction");
 
         assertEquals(currentID, b.id, "The book does not have the correct id.");
@@ -38,11 +37,11 @@ class BookTest {
         assertEquals("Fiction", b.genre, "The default constructor does not set the genre to the given genre.");
         assertFalse(b.checkedOut, "The default constructor marks the book as checked out.");
 
-        assertEquals(currentID+1, login.id, "The default constructor does not increment the id.");
+        assertEquals(currentID + 1, login.id, "The default constructor does not increment the id.");
     }
 
     @Test
-    public void multipleBooksCreationTest(){
+    public void multipleBooksCreationTest() {
         String[][] answers = {
                 {"A Wrinkle In Time", "Madeleine L'Engle", "Science Fiction"},
                 {"Dracula", "Bram Stoker", "Horror"},
@@ -57,9 +56,9 @@ class BookTest {
 
         //checks all the ids are correct
         assertEquals(currentID, b1.id, "A book does not have the correct id.");
-        assertEquals(currentID+1, b2.id, "A book does not have the correct id.");
-        assertEquals(currentID+2, b3.id, "A book does not have the correct id.");
-        assertEquals(currentID+3, b4.id, "A book does not have the correct id.");
+        assertEquals(currentID + 1, b2.id, "A book does not have the correct id.");
+        assertEquals(currentID + 2, b3.id, "A book does not have the correct id.");
+        assertEquals(currentID + 3, b4.id, "A book does not have the correct id.");
 
         //check all the book names
         assertEquals(answers[0][0], b1.title, "A book does not have the correct title.");
@@ -85,8 +84,6 @@ class BookTest {
         assertFalse(b3.checkedOut, "A book is marked as checked out by default");
         assertFalse(b4.checkedOut, "A book is marked as checked out by default");
 
-        assertEquals(currentID+4, login.id, "The creation of multiple books does not raise the login id to the expected number.");
+        assertEquals(currentID + 4, login.id, "The creation of multiple books does not raise the login id to the expected number.");
     }
-
-    //check if you can alter information
 }
