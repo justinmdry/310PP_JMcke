@@ -13,7 +13,7 @@ public class CalligraphyApplication extends Application {
         ViewPump.init(ViewPump.builder()
                 .addInterceptor(new CalligraphyInterceptor(
                         new CalligraphyConfig.Builder()
-                                .setDefaultFontPath("fonts/WoxmodelistLightDemo.ttf")
+                                .setDefaultFontPath("fonts/WoxmodelistDemo.ttf")
                                 .setFontAttrId(R.attr.fontPath)
                                 .build()))
                 .build());
