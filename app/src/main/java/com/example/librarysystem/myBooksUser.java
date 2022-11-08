@@ -4,6 +4,7 @@ import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class myBooksUser extends AppCompatActivity {
 
@@ -63,6 +66,11 @@ public class myBooksUser extends AppCompatActivity {
 
 
         }
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     public void returnHome(View V){//return home button

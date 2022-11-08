@@ -2,11 +2,14 @@ package com.example.librarysystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
+
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class UserMain extends AppCompatActivity {
 
@@ -15,6 +18,11 @@ public class UserMain extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     public void myBooksUser (View v){//button to access users book view

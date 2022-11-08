@@ -2,11 +2,14 @@ package com.example.librarysystem;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 
 import java.util.ArrayList;
+
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class AdminMain extends AppCompatActivity {
     @Override
@@ -14,6 +17,11 @@ public class AdminMain extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_admin_view);
 
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
 
