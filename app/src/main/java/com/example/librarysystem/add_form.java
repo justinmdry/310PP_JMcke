@@ -5,6 +5,7 @@ import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -12,6 +13,8 @@ import android.widget.EditText;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class add_form extends AppCompatActivity {
     ArrayList<Book> list;
@@ -23,6 +26,11 @@ public class add_form extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_form);
+    }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
     }
 
     public void addBook (View view){

@@ -4,6 +4,7 @@ import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Context;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
@@ -13,6 +14,8 @@ import android.widget.TableRow;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+
+import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class ManageBooks extends AppCompatActivity {
     ArrayList<Book> listOfBooks;
@@ -60,6 +63,12 @@ public class ManageBooks extends AppCompatActivity {
 
         }
     }
+
+    @Override
+    protected void attachBaseContext(Context newBase) {
+        super.attachBaseContext(ViewPumpContextWrapper.wrap(newBase));
+    }
+
     //Restarts activity to show changes
 public void restart(){
     Intent intent = new Intent(ManageBooks.this, ManageBooks.class);
