@@ -15,6 +15,8 @@ public class login extends AppCompatActivity {
     static int id = 0;
     static ArrayList<Book> books;//creating references for createDB
     static BookList lOB ;
+    static ArrayList<Account> accounts;
+    static AccountList lOA;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,27 +31,81 @@ public class login extends AppCompatActivity {
         EditText pass=(EditText) findViewById(R.id.password);
         String userS=user.getText().toString();
         String passS=pass.getText().toString();//getting user and pass fields
-        Toast t1 = Toast.makeText(getApplicationContext(), "Wrong username or password. Fields are case sensitive", Toast.LENGTH_SHORT);
 
-        if(userS.equals("user") && passS.equals("pass")){//login for user (temp)
-            Intent intent= new Intent(this, UserMain.class);
+        lOA = lOA.readAccs(getApplicationContext()); //get list of accounts
+        accounts = lOA.getAccountList();
 
-            startActivity(intent);
-        } else if (userS.equals("admin") && passS.equals("pass")) {
-            Intent intent= new Intent(this, AdminMain.class);
+         if (userS.equals("admin")) {
+             for(int i = 0; i < accounts.size() ; i++){
+                 //if there is already a user with the given username then dont make account and give a toast
+                 if(userS.equals(accounts.get(i).getUserName()) ){
+                     if( passS.equals(accounts.get(i).getPassWord())){
+                     Intent intent= new Intent(this, AdminMain.class);
 
-            startActivity(intent);
+                     startActivity(intent);
+                     }else{
+                         Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
+                     }
+                 }
+             }
+        }else{
+             for(int i = 0; i < accounts.size() ; i++){
+                 //check if there is a user with the username and see if it matches the given
+                 if(userS.equals(accounts.get(i).getUserName()) ){
+                     //Check if password is equal to the one on the account with correct username
+                     if( passS.equals(accounts.get(i).getPassWord())){
+                         Intent intent= new Intent(this, UserMain.class);
 
-        } else {
-            t1.show();
+                         startActivity(intent);
+                     }else{
+                         Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
+                     }
+                }else{
+                     Toast.makeText(getApplicationContext(), "There is no user with the given Username", Toast.LENGTH_SHORT).show();
+                 }
+             }
         }
     }
 
-    public void createDB() {//if the DB is not created on device, create DB with basic fields
-        //this will create or read the database from the file and BookList.read() function
-        books = new ArrayList<Book>();
+    public void makeAcc(View v){//make account button
+        EditText user=(EditText) findViewById(R.id.username);
+        EditText pass=(EditText) findViewById(R.id.password);
+        String userS=user.getText().toString();
+        String passS=pass.getText().toString();//getting user and pass fields
+        lOA = lOA.readAccs(getApplicationContext()); //get list of accounts
+        accounts = lOA.getAccountList();
+        boolean makeAcc = false;  //if set to true there is already an account with this user so don't make one
 
+        for(int i = 0; i < accounts.size() ; i++){
+            //if there is already a user with the given username then dont make account and give a toast
+            if(userS.equals(accounts.get(i).getUserName())){
+                Toast.makeText(getApplicationContext(), "There is already an account with that user name", Toast.LENGTH_SHORT).show();
+                makeAcc = true;
+            }
+        }
+        if(makeAcc == false){
+            //If there is no user with the given username than make account and log them in
+            Account newA = new Account(userS, passS, false);
+            accounts.add(newA);
+            lOA = new AccountList(accounts);
+            //rewrite the list so it saves with the new account
+            lOA.writeAccToFile(lOA, getApplicationContext());
+            //pass the user through to the user view
+            Intent intent= new Intent(this, UserMain.class);
+            startActivity(intent);
+        }
+    }
+
+    public void createDB() {//if the DB's are not created on device, create DB's with basic fields
+        //this will create or read the database's from the file
+        books = new ArrayList<Book>();
+        accounts = new ArrayList<Account>();
+
+        lOA = lOA.readAccs(getApplicationContext());
         lOB = lOB.read(getApplicationContext());
+
+        ArrayList<Account> listOfAccounts;
+        listOfAccounts = lOA.getAccountList();
 
         ArrayList<Book> listOfBooks;
         listOfBooks = lOB.getBookList();
@@ -124,7 +180,14 @@ public class login extends AppCompatActivity {
                 lOB.writeToFile(lOB, getApplicationContext());
 
             }
+            if(listOfAccounts == null ||listOfAccounts.isEmpty()){
+                Account admin = new Account("admin", "pass", true);
+                Account test = new Account("Test", "TestPass");
+                accounts.add(admin);
+                accounts.add(test);
+                lOA = new AccountList(accounts);
+                lOA.writeAccToFile(lOA, getApplicationContext());
+                }
         }
-
 
 }
