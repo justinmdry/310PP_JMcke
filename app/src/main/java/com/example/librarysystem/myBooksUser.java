@@ -21,6 +21,7 @@ public class myBooksUser extends AppCompatActivity {
 
     ArrayList<Book> listOfBooksUserView;
     TableLayout displayBooksUserView;//creating references
+    String userN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -31,6 +32,9 @@ public class myBooksUser extends AppCompatActivity {
         listOfBooksUserView = lOB.getBookList();
         displayBooksUserView= (TableLayout) findViewById(R.id.displayBooksUserView);//casting table
 
+        Bundle bundle = getIntent().getExtras();
+        userN = bundle.getString("userN");
+
 
         for(int i=0;i<listOfBooksUserView.size();i++){//creating table
 
@@ -38,7 +42,7 @@ public class myBooksUser extends AppCompatActivity {
 
             TableRow row=new TableRow(this);//creating row
 
-            if(fill.checkedOut==true){
+            if(fill.checkedOut==true && userN.equals(fill.inPos)){
                 String title=fill.title;//creating title view
                 TextView titleView=new TextView(this);
                 titleView.setText(""+title);
@@ -50,6 +54,7 @@ public class myBooksUser extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         fill.checkedOut=false;//change value if button is pressed
+                        fill.inPos = null;
                         //update the file so it contains the book as checked out
                         BookList lOB = new BookList(listOfBooksUserView);
                         lOB.writeToFile(lOB,getApplicationContext());
@@ -75,12 +80,18 @@ public class myBooksUser extends AppCompatActivity {
 
     public void returnHome(View V){//return home button
         Intent intent= new Intent(this, UserMain.class);
+        Bundle bundle= new Bundle();// placeholder for getting usernames
+        bundle.putString("userN",userN);
+        intent.putExtras(bundle);
         startActivity(intent);
     }
 
     //Restarts activity to show changes
     public void restart(){
         Intent intent = new Intent(this, myBooksUser.class);
+        Bundle bundle= new Bundle();// placeholder for getting usernames
+        bundle.putString("userN",userN);
+        intent.putExtras(bundle);
         startActivity(intent); // start same activity
         finish(); // destroy older activity
         overridePendingTransition(0, 0);

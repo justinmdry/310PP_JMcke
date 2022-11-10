@@ -5,7 +5,7 @@ import java.io.Serializable;
 //Creates a book object that holds title, author, genre, id, and checked out status
 public class Book implements Serializable {
     int id;
-    String title, author, genre;
+    String title, author, genre, inPos;
     boolean checkedOut;
 
     public Book() {
@@ -14,6 +14,7 @@ public class Book implements Serializable {
     author = "null";
     genre = "null";
     checkedOut = false;
+    inPos = null;
     login.id++;
     }
 
@@ -24,6 +25,7 @@ public class Book implements Serializable {
         this.author = author;
         this.genre = genre;
         checkedOut = false;
+        inPos = null;
         login.id++;
     }
 

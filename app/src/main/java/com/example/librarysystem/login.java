@@ -52,7 +52,6 @@ public class login extends AppCompatActivity {
                  if(userS.equals(accounts.get(i).getUserName()) ){
                      if( passS.equals(accounts.get(i).getPassWord())){
                      Intent intent= new Intent(this, AdminMain.class);
-
                      startActivity(intent);
                      }else{
                          Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
@@ -66,7 +65,9 @@ public class login extends AppCompatActivity {
                      //Check if password is equal to the one on the account with correct username
                      if( passS.equals(accounts.get(i).getPassWord())){
                          Intent intent= new Intent(this, UserMain.class);
-
+                         Bundle bundle = new Bundle();
+                         bundle.putString("userName" , userS);
+                         intent.putExtras(bundle);
                          startActivity(intent);
                          return;
                      }else{
@@ -95,7 +96,10 @@ public class login extends AppCompatActivity {
                 makeAcc = true;
             }
         }
-        if(makeAcc == false){
+
+        if(userS.isEmpty()){
+            Toast.makeText(getApplicationContext(), "Please enter desired username and password for new account", Toast.LENGTH_SHORT).show();
+        } else if(makeAcc == false){
             //If there is no user with the given username than make account and log them in
             Account newA = new Account(userS, passS, false);
             accounts.add(newA);
@@ -104,6 +108,9 @@ public class login extends AppCompatActivity {
             lOA.writeAccToFile(lOA, getApplicationContext());
             //pass the user through to the user view
             Intent intent= new Intent(this, UserMain.class);
+            Bundle bundle = new Bundle();
+            bundle.putString("userName" , userS);
+            intent.putExtras(bundle);
             startActivity(intent);
         }
     }

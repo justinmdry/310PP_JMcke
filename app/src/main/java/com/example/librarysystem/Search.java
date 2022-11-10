@@ -21,6 +21,7 @@ public class Search extends AppCompatActivity {
 
     ArrayList<Book> listOfBooks;
     TableLayout displayBooks;//creating references
+    String userN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,6 +30,7 @@ public class Search extends AppCompatActivity {
 
         Intent intent=getIntent();
         Bundle bundle=intent.getExtras();//getting user Key
+        userN = bundle.getString("userN");
 
 
         lOB.read(getApplicationContext()); //  BookList lOB = new BookList();
@@ -51,6 +53,7 @@ public class Search extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         fill.checkedOut = true;//if button is pressed update field
+                        fill.inPos = userN;
                         //update the file so it contains the book as checked out
                         BookList lOB = new BookList(listOfBooks);
                         lOB.writeToFile(lOB, getApplicationContext());
@@ -74,6 +77,9 @@ public class Search extends AppCompatActivity {
 
     public void returnHome(View v){//return home button
         Intent intent= new Intent(this, UserMain.class);
+        Bundle bundle= new Bundle();// placeholder for getting usernames
+        bundle.putString("userN",userN);
+        intent.putExtras(bundle);
         startActivity(intent);
 
     }
