@@ -29,6 +29,7 @@ public class login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
+        createDB();
     }
 
     @Override
@@ -67,14 +68,15 @@ public class login extends AppCompatActivity {
                          Intent intent= new Intent(this, UserMain.class);
 
                          startActivity(intent);
+                         return;
                      }else{
                          Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
                      }
-                }else{
-                     Toast.makeText(getApplicationContext(), "There is no user with the given Username", Toast.LENGTH_SHORT).show();
-                 }
+                }
              }
-        }
+             Toast.makeText(getApplicationContext(), "There is no user with the given Username", Toast.LENGTH_SHORT).show();
+
+         }
     }
 
     public void makeAcc(View v){//make account button
