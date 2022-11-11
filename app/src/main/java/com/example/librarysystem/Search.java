@@ -127,7 +127,7 @@ public class Search extends AppCompatActivity {
                 }
             }
         } else{//if search terms are entered
-            if(searchCondSelect.contains("Title")){
+            if(searchCondSelect.contains("Title")){//if searching title
                 for(int i=0;i<listOfBooks.size();i++) {//creating table
 
                     Book fill = listOfBooks.get(i);//iterating through books
@@ -160,7 +160,7 @@ public class Search extends AppCompatActivity {
                     }
                 }
             };
-            if(searchCondSelect.contains("Author")){
+            if(searchCondSelect.contains("Author")){//if searching author
                 for(int i=0;i<listOfBooks.size();i++) {//creating table
 
                     Book fill = listOfBooks.get(i);//iterating through books
@@ -193,7 +193,7 @@ public class Search extends AppCompatActivity {
                     }
                 }
             };
-            if(searchCondSelect.contains("Genre")){
+            if(searchCondSelect.contains("Genre")){//if searching genre
                 for(int i=0;i<listOfBooks.size();i++) {//creating table
 
                     Book fill = listOfBooks.get(i);//iterating through books
