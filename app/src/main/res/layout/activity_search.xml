@@ -22,15 +22,11 @@
 
     <ScrollView
         android:id="@+id/ScrollViewSearch"
-        android:layout_width="wrap_content"
-        android:layout_height="0dp"
-        android:layout_marginTop="30dp"
+        android:layout_width="364dp"
+        android:layout_height="591dp"
         android:fillViewport="false"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/returnHomeSearch"
-        app:layout_constraintVertical_bias="1.0">
+        app:layout_constraintTop_toBottomOf="@+id/inputSearch"
+        tools:layout_editor_absoluteX="22dp">
 
         <TableLayout
             android:id="@+id/displayBooks"
@@ -39,7 +35,7 @@
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="@+id/returnHomeSearch"
+            app:layout_constraintTop_toTopOf="@+id/inputSearch"
             app:layout_constraintVertical_bias="0.969">
 
             <TableRow
@@ -60,5 +56,44 @@
         </TableLayout>
 
     </ScrollView>
+
+    <EditText
+        android:id="@+id/inputSearch"
+        android:layout_width="265dp"
+        android:layout_height="51dp"
+        android:ems="10"
+        android:inputType="textPersonName"
+        android:textColor="#000000"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.116"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.094" />
+
+    <Spinner
+        android:id="@+id/searchCond"
+        android:layout_width="259dp"
+        android:layout_height="48dp"
+        android:entries="@array/searchCondItems"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.877"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.023" />
+
+    <Button
+        android:id="@+id/searchButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="startSearch"
+        android:text="Search"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.921"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.098" />
 
 </androidx.constraintlayout.widget.ConstraintLayout>
