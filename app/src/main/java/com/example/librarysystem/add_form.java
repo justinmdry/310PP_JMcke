@@ -18,8 +18,8 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class add_form extends AppCompatActivity {
     ArrayList<Book> list;
-    String title, author, genre;
-    EditText titleText, authorText, genreText;
+    String title, author, genre, description;
+    EditText titleText, authorText, genreText, descriptionText;
 
 
     @Override
@@ -37,11 +37,13 @@ public class add_form extends AppCompatActivity {
         titleText = (EditText) findViewById(R.id.titleField);
         authorText = (EditText) findViewById(R.id.authorField);
         genreText = (EditText) findViewById(R.id.genreField);
+        descriptionText = (EditText) findViewById(R.id.descriptionField);
 
 
         title = titleText.getText().toString();
         author = authorText.getText().toString();
         genre = genreText.getText().toString();
+        description = descriptionText.getText().toString();
 
      //Gets the current booklist, adds the new book, and changes the master list
 
@@ -54,10 +56,11 @@ public class add_form extends AppCompatActivity {
         } else if (genre.isEmpty()){
             Toast t1 = Toast.makeText(getApplicationContext(), "Please enter a genre", Toast.LENGTH_SHORT);
             t1.show();
-        } else {
+        } else if (description.isEmpty()){}
+        else {
         lOB.read(getApplicationContext());
         list = lOB.getBookList();
-        list.add(new Book(login.id, title, author, genre));
+        list.add(new Book(login.id, title, author, genre, description));
         lOB = new BookList(list);
     lOB.writeToFile(lOB, getApplicationContext());
             Toast t1 = Toast.makeText(getApplicationContext(), title + " has been added", Toast.LENGTH_SHORT);

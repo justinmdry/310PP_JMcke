@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_add_form.xml" value="0.22" />
         <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_admin_view.xml" value="0.18840579710144928" />
+        <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_book_description.xml" value="0.346875" />
         <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_login.xml" value="0.2595108695652174" />
         <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_manage_books.xml" value="0.14666666666666667" />
         <entry key="..\:/Users/lrae2/AndroidStudioProjects/COSC310_Group30_Library/app/src/main/res/layout/activity_my_books_user.xml" value="0.25" />
