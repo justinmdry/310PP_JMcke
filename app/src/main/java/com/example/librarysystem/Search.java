@@ -280,12 +280,16 @@ public class Search extends AppCompatActivity {
         bundle.putString("userN",userN);
         intent.putExtras(bundle);
         startActivity(intent);
+        finish();
 
     }
 
     //Restarts activity to show changes
     public void restart(){
         Intent intent = new Intent(this, Search.class);
+        Bundle bundle= new Bundle();// placeholder for getting usernames
+        bundle.putString("userN",userN);
+        intent.putExtras(bundle);
         startActivity(intent); // start same activity
         finish(); // destroy older activity
         overridePendingTransition(0, 0);

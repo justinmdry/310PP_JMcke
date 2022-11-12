@@ -32,6 +32,8 @@ public class myBooksUser extends AppCompatActivity {
         listOfBooksUserView = lOB.getBookList();
         displayBooksUserView= (TableLayout) findViewById(R.id.displayBooksUserView);//casting table
 
+        Intent intent=getIntent();
+
         Bundle bundle = getIntent().getExtras();
         userN = bundle.getString("userN");
 
@@ -42,7 +44,7 @@ public class myBooksUser extends AppCompatActivity {
 
             TableRow row=new TableRow(this);//creating row
 
-            if(fill.checkedOut==true && userN.equals(fill.inPos)){
+            if(fill.checkedOut==true ){
                 String title=fill.title;//creating title view
                 TextView titleView=new TextView(this);
                 titleView.setText(""+title);
