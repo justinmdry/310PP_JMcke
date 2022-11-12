@@ -43,11 +43,19 @@ public class AccountTest {
 
     @Test
     public void correctGetUsernameMethodTest(){
+        Account a = new Account("username123", "password456");
+        assertEquals("username123", a.getUserName(), "Your getUserName method does not return the expected value.");
 
+        a.userName = "changed username";
+        assertEquals("changed username", a.getUserName(), "Your getUserName method does not return the correct username after it has been altered.");
     }
 
     @Test
     public void correctGetPasswordMethodTest(){
+        Account a = new Account("username123", "password456");
+        assertEquals("password456", a.getPassWord(), "Your getPassWord method does not return the expected value.");
 
+        a.passWord = "changed password";
+        assertEquals("changed password", a.getPassWord(), "Your getPassWord method does not return the correct password after it has been altered.");
     }
 }
