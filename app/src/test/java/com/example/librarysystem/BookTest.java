@@ -22,7 +22,9 @@ class BookTest {
         assertEquals("null", b.title, "The default constructor does not set the title to null.");
         assertEquals("null", b.author, "The default constructor does not set the author to null.");
         assertEquals("null", b.genre, "The default constructor does not set the genre to null.");
+        assertEquals("null", b.description, "The default constructor does not set the description to null.");
         assertFalse(b.checkedOut, "The default constructor marks the book as checked out.");
+        assertNull(b.inPos, "The default constructor does not set the inPos to null");
 
         assertEquals(currentID + 1, login.id, "The default constructor does not increment the id.");
     }
