@@ -31,13 +31,15 @@ class BookTest {
 
     @Test
     public void correctNonDefaultConstructorTest() {
-        Book b = new Book(13, "The Magician's Nephew", "C.S. Lewis", "Fiction");
+        Book b = new Book(13, "The Magician's Nephew", "C.S. Lewis", "Fiction", "A children's fantasy that's a jesus allegory.");
 
         assertEquals(currentID, b.id, "The book does not have the correct id.");
-        assertEquals("The Magician's Nephew", b.title, "The default constructor does not set the title to the given title.");
-        assertEquals("C.S. Lewis", b.author, "The default constructor does not set the author to the given author.");
-        assertEquals("Fiction", b.genre, "The default constructor does not set the genre to the given genre.");
+        assertEquals("The Magician's Nephew", b.title, "The non default constructor does not set the title to the given title.");
+        assertEquals("C.S. Lewis", b.author, "The non default constructor does not set the author to the given author.");
+        assertEquals("Fiction", b.genre, "The non default constructor does not set the genre to the given genre.");
+        assertEquals("A children's fantasy that's a jesus allegory.", b.description, "The non default constructor does not set the description to the given description.");
         assertFalse(b.checkedOut, "The default constructor marks the book as checked out.");
+        assertNull(b.inPos, "The non default constructor does not set the inPos to null");
 
         assertEquals(currentID + 1, login.id, "The default constructor does not increment the id.");
     }
