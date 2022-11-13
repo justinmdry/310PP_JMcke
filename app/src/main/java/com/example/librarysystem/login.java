@@ -4,17 +4,15 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Context;
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.TextView;
-import android.widget.Toast;
+
+import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.ArrayList;
 
-import io.github.inflationx.calligraphy3.CalligraphyConfig;
-import io.github.inflationx.calligraphy3.CalligraphyInterceptor;
-import io.github.inflationx.viewpump.ViewPump;
 import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class login extends AppCompatActivity {
@@ -48,13 +46,13 @@ public class login extends AppCompatActivity {
 
          if (userS.equals("admin")) {
              for(int i = 0; i < accounts.size() ; i++){
-                 //if there is already a user with the given username then dont make account and give a toast
+                 //if there is already a user with the given username then don't make account and give a toast
                  if(userS.equals(accounts.get(i).getUserName()) ){
                      if( passS.equals(accounts.get(i).getPassWord())){
                      Intent intent= new Intent(this, AdminMain.class);
                      startActivity(intent);
                      }else{
-                         Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
+                         DynamicToast.makeError(getApplicationContext(), "Password is incorrect").show();
                      }
                  }
              }
@@ -71,12 +69,11 @@ public class login extends AppCompatActivity {
                          startActivity(intent);
                          return;
                      }else{
-                         Toast.makeText(getApplicationContext(), "Password is incorrect", Toast.LENGTH_SHORT).show();
+                         DynamicToast.makeError(getApplicationContext(), "Password is incorrect").show();
                      }
                 }
              }
-             Toast.makeText(getApplicationContext(), "There is no user with the given Username", Toast.LENGTH_SHORT).show();
-
+             DynamicToast.makeError(getApplicationContext(), "There is no user with the given Username").show();
          }
     }
 
@@ -89,16 +86,26 @@ public class login extends AppCompatActivity {
         accounts = lOA.getAccountList();
         boolean makeAcc = false;  //if set to true there is already an account with this user so don't make one
 
+        // Customise toast.
+        DynamicToast.Config.getInstance()
+                .setWarningBackgroundColor(Color.parseColor("#6CE0F3"))
+                .apply();
+
+
         for(int i = 0; i < accounts.size() ; i++){
             //if there is already a user with the given username then dont make account and give a toast
             if(userS.equals(accounts.get(i).getUserName())){
-                Toast.makeText(getApplicationContext(), "There is already an account with that user name", Toast.LENGTH_SHORT).show();
+                DynamicToast.makeWarning(this, "There is already an account with that user name").show();
                 makeAcc = true;
             }
         }
 
         if(userS.isEmpty()){
-            Toast.makeText(getApplicationContext(), "Please enter desired username and password for new account", Toast.LENGTH_SHORT).show();
+            DynamicToast.makeWarning(this, "Please enter desired username and password for new account").show();
+
+
+            // Reset customisations.
+            DynamicToast.Config.getInstance().reset();
         } else if(makeAcc == false){
             //If there is no user with the given username than make account and log them in
             Account newA = new Account(userS, passS, false);

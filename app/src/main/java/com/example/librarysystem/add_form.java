@@ -1,6 +1,5 @@
 package com.example.librarysystem;
 
-import static com.example.librarysystem.login.books;
 import static com.example.librarysystem.login.lOB;
 
 import androidx.appcompat.app.AppCompatActivity;
@@ -10,7 +9,8 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.EditText;
-import android.widget.Toast;
+
+import com.pranavpandey.android.dynamic.toasts.DynamicToast;
 
 import java.util.ArrayList;
 
@@ -48,23 +48,21 @@ public class add_form extends AppCompatActivity {
      //Gets the current booklist, adds the new book, and changes the master list
 
         if (title.isEmpty())  {
-            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter a book title", Toast.LENGTH_SHORT);
-            t1.show();
+            DynamicToast.makeWarning(getApplicationContext(), "Please enter a book title").show();
         } else if (author.isEmpty()){
-            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter an author", Toast.LENGTH_SHORT);
-            t1.show();
+            DynamicToast.makeWarning(getApplicationContext(), "Please enter an author").show();
         } else if (genre.isEmpty()){
-            Toast t1 = Toast.makeText(getApplicationContext(), "Please enter a genre", Toast.LENGTH_SHORT);
-            t1.show();
-        } else if (description.isEmpty()){}
+            DynamicToast.makeWarning(getApplicationContext(), "Please enter a genre").show();
+        } else if (description.isEmpty()){
+            DynamicToast.makeWarning(getApplicationContext(), "Please enter a description").show();
+        }
         else {
         lOB.read(getApplicationContext());
         list = lOB.getBookList();
         list.add(new Book(login.id, title, author, genre, description));
         lOB = new BookList(list);
     lOB.writeToFile(lOB, getApplicationContext());
-            Toast t1 = Toast.makeText(getApplicationContext(), title + " has been added", Toast.LENGTH_SHORT);
-            t1.show();
+            DynamicToast.makeSuccess(getApplicationContext(), title + " has been added").show();
             restart();
         }
     }
