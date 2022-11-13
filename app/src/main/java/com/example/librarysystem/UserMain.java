@@ -13,14 +13,11 @@ import io.github.inflationx.viewpump.ViewPumpContextWrapper;
 
 public class UserMain extends AppCompatActivity {
 
-    String userN;
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_user_main);
-        Bundle bundle = getIntent().getExtras();
-        userN = bundle.getString("userName");
+
     }
 
     @Override
@@ -29,6 +26,9 @@ public class UserMain extends AppCompatActivity {
     }
 
     public void myBooksUser (View v){//button to access users book view
+            Bundle bundle1 = getIntent().getExtras();
+            String userN = bundle1.getString("userN");
+
             Intent intent= new Intent(this, myBooksUser.class);
             Bundle bundle= new Bundle();// placeholder for getting usernames
             bundle.putString("userN",userN);
@@ -36,6 +36,9 @@ public class UserMain extends AppCompatActivity {
             startActivity(intent);
     }
     public void searchUser (View v){//button to access user search view
+        Bundle bundle1 = getIntent().getExtras();
+        String userN = bundle1.getString("userN");
+
         Intent intent= new Intent(this, Search.class);
 
         Bundle bundle= new Bundle();// placeholder for getting usernames

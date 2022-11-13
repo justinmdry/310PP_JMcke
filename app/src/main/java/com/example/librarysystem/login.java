@@ -66,7 +66,7 @@ public class login extends AppCompatActivity {
                      if( passS.equals(accounts.get(i).getPassWord())){
                          Intent intent= new Intent(this, UserMain.class);
                          Bundle bundle = new Bundle();
-                         bundle.putString("userName" , userS);
+                         bundle.putString("userN" , userS);
                          intent.putExtras(bundle);
                          startActivity(intent);
                          return;
@@ -109,7 +109,7 @@ public class login extends AppCompatActivity {
             //pass the user through to the user view
             Intent intent= new Intent(this, UserMain.class);
             Bundle bundle = new Bundle();
-            bundle.putString("userName" , userS);
+            bundle.putString("userN" , userS);
             intent.putExtras(bundle);
             startActivity(intent);
         }

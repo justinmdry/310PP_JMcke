@@ -21,7 +21,6 @@ public class myBooksUser extends AppCompatActivity {
 
     ArrayList<Book> listOfBooksUserView;
     TableLayout displayBooksUserView;//creating references
-    String userN;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -35,7 +34,7 @@ public class myBooksUser extends AppCompatActivity {
         Intent intent=getIntent();
 
         Bundle bundle = getIntent().getExtras();
-        userN = bundle.getString("userN");
+        String userN = bundle.getString("userN");
 
 
         for(int i=0;i<listOfBooksUserView.size();i++){//creating table
@@ -44,7 +43,7 @@ public class myBooksUser extends AppCompatActivity {
 
             TableRow row=new TableRow(this);//creating row
 
-            if(fill.checkedOut==true ){
+            if(fill.checkedOut==true && userN.compareTo(fill.inPos) == 0){
                 String title=fill.title;//creating title view
                 TextView titleView=new TextView(this);
                 titleView.setText(""+title);
@@ -81,6 +80,9 @@ public class myBooksUser extends AppCompatActivity {
     }
 
     public void returnHome(View V){//return home button
+        Bundle bundle1 = getIntent().getExtras();
+        String userN = bundle1.getString("userN");
+
         Intent intent= new Intent(this, UserMain.class);
         Bundle bundle= new Bundle();// placeholder for getting usernames
         bundle.putString("userN",userN);
@@ -90,6 +92,9 @@ public class myBooksUser extends AppCompatActivity {
 
     //Restarts activity to show changes
     public void restart(){
+        Bundle bundle1 = getIntent().getExtras();
+        String userN = bundle1.getString("userN");
+
         Intent intent = new Intent(this, myBooksUser.class);
         Bundle bundle= new Bundle();// placeholder for getting usernames
         bundle.putString("userN",userN);
