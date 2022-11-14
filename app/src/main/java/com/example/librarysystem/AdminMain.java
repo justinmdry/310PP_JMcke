@@ -37,4 +37,9 @@ public class AdminMain extends AppCompatActivity {
         Intent intent=new Intent (this, login.class);
         startActivity(intent);
     }
+
+    public void report (View v){//button to logout
+        Intent intent=new Intent (this, Report.class);
+        startActivity(intent);
+    }
 }

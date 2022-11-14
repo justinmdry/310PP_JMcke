@@ -317,8 +317,7 @@ public class Search extends AppCompatActivity {
         bundle.putString("genre",book.genre);
         bundle.putString("description",book.description);
         bundle.putString("userN", userN);
-
-        //bundle.putString("description",book.description);
+        bundle.putString("description",book.description);
 
         intent.putExtras(bundle);
         startActivity(intent);//starting activity

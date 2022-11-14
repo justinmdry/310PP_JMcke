@@ -13,24 +13,24 @@ import java.io.ObjectOutputStream;
 import java.io.Serializable;
 import java.util.ArrayList;
 
-public class BookList implements Serializable {
+public class ReportList implements Serializable {
+    ArrayList<ReportObj> reportList;
 
-    ArrayList<Book> bookList;
-
-    public ArrayList<Book> getBookList() {
-        return bookList;
+    public ArrayList<ReportObj> getReportList() {
+        return reportList;
     }
 
-    public BookList(ArrayList<Book> listOfBooks) {
 
-        this.bookList = listOfBooks;
+    public ReportList(ArrayList<ReportObj> listOfReports) {
+
+        this.reportList = listOfReports;
     }
 
-    public BookList() {
-        this.bookList = null;
+    public ReportList() {
+        this.reportList = null;
     }
 
-    public void writeToFile(BookList lOB, Context context) {
+    public void writeToFile(ReportList ROB, Context context) {
 
         //Open the file to write to
         File directory = new File(context.getFilesDir().getAbsolutePath()
@@ -39,14 +39,14 @@ public class BookList implements Serializable {
             directory.mkdirs();
         }
 
-        String filename = "bookList.srl";
+        String filename = "reportList.srl";
         ObjectOutput out = null;
 
         try {
             out = new ObjectOutputStream(new FileOutputStream(directory
                     + File.separator + filename));
             //write the objects from the lOB arraylist so they are stored in the fie
-            out.writeObject(lOB);
+            out.writeObject(ROB);
             //close the out object output stream
             out.close();
         } catch (FileNotFoundException e) {
@@ -57,21 +57,21 @@ public class BookList implements Serializable {
 
     }
 
-    public static BookList read(Context context) {
+    public static ReportList read(Context context) {
         //make the object input stream and array list, along with create a string for the file name
         ObjectInputStream input = null;
-        ArrayList<BookList> lOB = null;
-        String filename = "bookList.srl";
+        ArrayList<ReportList> ROB = null;
+        String filename = "reportList.srl";
         //open the file you will read from
         File direct = new File(context.getFilesDir().getAbsolutePath() + File.separator + "serlization");
 
-        BookList returnList = null;
+        ReportList returnList = null;
         try {
             //declare the ObjectInputStream
             input = new ObjectInputStream(new FileInputStream(direct + File.separator + filename));
 
             //read the arraylist from the file and store it in return list
-            returnList = (BookList) input.readObject();
+            returnList = (ReportList) input.readObject();
             input.close();
         } catch (FileNotFoundException e) {
             e.printStackTrace();
@@ -84,7 +84,7 @@ public class BookList implements Serializable {
 
         if (returnList == null) {
             //if return list is null then return a empty list
-            BookList rL2 = new BookList();
+            ReportList rL2 = new ReportList();
             return rL2;
         } else {
             //else return the written list
@@ -92,7 +92,3 @@ public class BookList implements Serializable {
         }
     }
 }
-
-
-
-

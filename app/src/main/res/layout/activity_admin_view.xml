@@ -6,6 +6,20 @@
     android:layout_height="match_parent"
     tools:context=".AdminMain">
 
+    <Button
+        android:id="@+id/returns2"
+        android:layout_width="233dp"
+        android:layout_height="87dp"
+        android:layout_marginTop="60dp"
+        android:layout_marginBottom="50dp"
+        android:onClick="report"
+        android:text="Reports"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/manageBooks"
+        app:layout_constraintVertical_bias="0.0" />
+
     <TextView
         android:id="@+id/logoutAdmin"
         android:layout_width="51dp"
@@ -26,24 +40,21 @@
         android:id="@+id/manageBooks"
         android:layout_width="233dp"
         android:layout_height="87dp"
-        android:layout_marginTop="300dp"
+        android:layout_marginTop="60dp"
         android:onClick="manageBooks"
         android:text="Manage BookList"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
+        app:layout_constraintTop_toBottomOf="@+id/returns" />
 
     <Button
         android:id="@+id/returns"
         android:layout_width="233dp"
         android:layout_height="87dp"
         android:layout_marginTop="188dp"
-        android:layout_marginBottom="50dp"
         android:onClick="returns"
         android:text="Returns"
-        app:layout_constraintBottom_toTopOf="@+id/manageBooks"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.85" />
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

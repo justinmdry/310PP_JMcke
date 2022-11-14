@@ -48,6 +48,22 @@ public class myBooksUser extends AppCompatActivity {
                 TextView titleView=new TextView(this);
                 titleView.setText(""+title);
 
+                Button report=new Button(this);//creating checkout Buttons
+                report.setTag(fill);
+                report.setText("Report");
+                report.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Bundle bundle= new Bundle();// placeholder for getting usernames
+                        bundle.putString("userN", userN);
+                        bundle.putString("title", title);
+
+                        Intent intent2= new Intent(view.getContext(), User_report.class);
+                        intent2.putExtras(bundle);
+                        startActivity(intent2);
+                    }
+                });
+
                 Button checkout=new Button(this);//creating checkout Buttons
                 checkout.setTag(fill);
                 checkout.setText("Return");
@@ -65,6 +81,7 @@ public class myBooksUser extends AppCompatActivity {
 
                 row.addView(titleView);//adding both bits to table
                 row.addView(checkout);
+                row.addView(report);
 
                 displayBooksUserView.addView(row);
 
