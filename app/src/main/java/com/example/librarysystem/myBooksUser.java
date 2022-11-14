@@ -54,8 +54,13 @@ public class myBooksUser extends AppCompatActivity {
                 report.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
+                        Bundle bundle= new Bundle();// placeholder for getting usernames
+                        bundle.putString("userN", userN);
+                        bundle.putString("title", title);
 
-
+                        Intent intent2= new Intent(view.getContext(), User_report.class);
+                        intent2.putExtras(bundle);
+                        startActivity(intent2);
                     }
                 });
 
