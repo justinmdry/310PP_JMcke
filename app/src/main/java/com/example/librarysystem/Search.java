@@ -315,6 +315,7 @@ public class Search extends AppCompatActivity {
         bundle.putString("title",book.title);
         bundle.putString("author",book.author);//Adding needed resources for advanced view
         bundle.putString("genre",book.genre);
+        bundle.putString("description",book.description);
         bundle.putString("userN", userN);
 
         //bundle.putString("description",book.description);
