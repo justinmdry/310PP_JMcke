@@ -82,7 +82,7 @@ All classes function as activities within the android studio project. We have ad
 
 ### **Running the application**
 - Create an account to access user functionality.
-    -Type in a username and password and press create account
+    - Type in a username and password and press create account
     - To view admin, type in the following credentials
         - Username: admin
         - Password: pass
