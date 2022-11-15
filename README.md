@@ -45,8 +45,31 @@ The library app will allow users and staff to interact with the library’s inve
 - ### **Admin Add Book**
     Brings up a form for the admin to fill out
 
+## **Iteration 2 Specifications and Limitations**
+- ### **Advanced Login**
+    Users can now create different accounts that will save books specifically to them. Admin only has 1 universal account. Accounts are limited to a local device. Future iterations could utilize a cloud base system for accounts.
+
+- ### **Search**
+   Users can now search for a specific book, author, or genre within the user search page.
+
+- ### **Report System**
+    Users can now report damages on a certain book and include a description. Admins can view reported damage tickets and resolve them.
+
+- ### **Advanced Book View**
+    Users can now click on a book to view more in depth information
+
+- ### **Descriptions**
+    Books now have descriptions that give a brief summary of what it is about. Admin must now give a description when adding a book.
+
+- ### **Open Source Libraries**
+    
+    - #### Calligraphy
+    Allows for custom fonts that improve the look of buttons and text in a fast manner
+    
+    - #### Dynamic Toasts
+    Improves the look of toast messages to provide better feedback to the user
 ## **Class Organization**
-All classes function as activities within the android studio project. The exception with this is Book and Booklist. Book is a static object that contains attributes about the books. Booklist is a public class used to store an arraylist of books and read and write to the internal storage.
+All classes function as activities within the android studio project. We have additional objects used to store data including: Book (stores book info), Booklist (A list of current books), ReportObj (Reported damage), ReportList (List of reports), Account (Stores login info for user) and AccountList (List of all accounts).
 
 ## **Installation Instructions**
 ### **System Requirements:**
@@ -58,17 +81,16 @@ All classes function as activities within the android studio project. The except
 3. Enjoy!
 
 ### **Running the application**
-- User and admin have different usernames and passwords
-    - User
-        - Username: user
-        - Password: pass
-    - Admin
+- Create an account to access user functionality.
+    -Type in a username and password and press create account
+    - To view admin, type in the following credentials
         - Username: admin
         - Password: pass
 ## **Team Members**
 - Ethan Sturek - Project Manager
 - Justin McKendry - Back-End Engineer
 - Liam Stienstra - Front-End Engineer
+- Samantha Hodge - Lead Testing Engineer
 
 ## **WBS/Gantt**
-Link is [here](https://app.smartsheet.com/sheets/mGMPcRX684vc3jw7CM2J5m2WWVm5q4RPqFGX4GC1?view=gantt)
+Link is [here](https://app.smartsheet.com/sheets/xm29X9Rc6PxrWWwhF9WVj38wqQ9vQHjcq3wF8491?view=grid)
