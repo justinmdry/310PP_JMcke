@@ -47,7 +47,17 @@ public class User_report extends AppCompatActivity {
             ROB.writeToFile(ROB, getApplicationContext());
 
         }
-        DynamicToast.makeWarning(getApplicationContext(), "Report submitted").show();
+        DynamicToast.makeSuccess(getApplicationContext(), "Report submitted").show();
+        Intent intent= new Intent(this, myBooksUser.class);
+        Bundle bundle= new Bundle();// placeholder for getting usernames
+        bundle.putString("userN",userN);
+        intent.putExtras(bundle);
+        startActivity(intent);
+        finish();
+
+    }
+
+    public void backBtn (View v) {
         Intent intent= new Intent(this, myBooksUser.class);
         Bundle bundle= new Bundle();// placeholder for getting usernames
         bundle.putString("userN",userN);
