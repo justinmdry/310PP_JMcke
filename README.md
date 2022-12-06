@@ -87,10 +87,13 @@ All classes function as activities within the android studio project. We have ad
         - Username: admin
         - Password: pass
 ## **Team Members**
-- Ethan Sturek - Project Manager
-- Justin McKendry - Back-End Engineer
-- Liam Stienstra - Front-End Engineer
-- Samantha Hodge - Lead Testing Engineer
+- Justin McKendry
+
+##**New Apis for Personal project**
+1. Google accounts api
+- I apptempted to use Google accounts api to allow the user to log in or create an account based on if they have one already from their email and name on the Google account.
+2. Facebook accounts api
+- I apptempted to use Facebook accounts api to allow the user to log in or create an account based on if they have one already from their email and name from their Facebook account.
 
 ## **WBS/Gantt**
 Link is [here](https://app.smartsheet.com/sheets/xm29X9Rc6PxrWWwhF9WVj38wqQ9vQHjcq3wF8491?view=grid)
