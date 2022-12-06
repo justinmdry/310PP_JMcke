@@ -89,7 +89,7 @@ All classes function as activities within the android studio project. We have ad
 ## **Team Members**
 - Justin McKendry
 
-##**New Apis for Personal project**
+## **New Apis for Personal project**
 1. Google accounts api
 - I apptempted to use Google accounts api to allow the user to log in or create an account based on if they have one already from their email and name on the Google account.
 2. Facebook accounts api
